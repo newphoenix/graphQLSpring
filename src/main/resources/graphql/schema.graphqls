@@ -1,0 +1,37 @@
+type Query{
+
+ users:[User]
+ getUserById(id : ID) : User
+ 
+}
+
+type User{
+ id: ID,
+ name: String,
+ surname: String,
+ age:  Int
+ orders: [Order]
+}
+
+scalar BigDecimal
+
+type Order{
+  id: ID,
+  quantity: Int
+  totalPrice : BigDecimal
+}
+
+type Mutation{
+
+  newUser(user : UserInput) : User
+  updateUser(user : UserInput) : User
+  deleteUser(id : Int) : Int
+}
+
+
+input UserInput {
+  id: ID,
+  name: String,
+  surname: String,
+  age:  Int
+}
